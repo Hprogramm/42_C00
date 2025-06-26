@@ -1,22 +1,21 @@
 #include <unistd.h>
 
-int main (int arc, char argv)
+int		main(int argc, char **argv)
 {
-if(int arc != 2)
-{
-write(1, "a\n", 2)
-return (0);
-}
-char str = argv[1];
-while(str)
-{
-if(str == 'a')
-{
-write(1, "a\n", 2);
-return (0);
-}
-str ++;
-}
-write(1, "a\n", 2);
-return (0);
+	if (argc != 2)
+		write(1, "a", 1);
+	else
+	{
+		while (*argv[1])
+		{
+			if (*argv[1] == 'a')
+			{
+				write(1, "a", 1);
+				break;
+			}
+			argv[1]++;
+		}
+	}
+	write(1, "\n", 1);
+	return (0);
 }
